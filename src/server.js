@@ -1,11 +1,13 @@
 const express = require('express');
 const apiRouter = require('./routes');
-
 const server = express();
-server.use('/api', apiRouter);
+const serverPort = process.env.SERVER_PORT;
 
-server.listen(3000, onServerStart);
+server.use('/api', apiRouter);
+server.listen(serverPort, onServerStart);
 
 function onServerStart() {
-  console.log('server listening on port 3000');
+  console.log('server listening on port: ', serverPort);
 }
+
+module.exports = server;
