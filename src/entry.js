@@ -1,2 +1,1 @@
-require('dotenv').config();
-const server = require('./server');
+import server from './server';

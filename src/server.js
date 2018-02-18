@@ -1,13 +1,14 @@
-const express = require('express');
-const apiRouter = require('./routes');
+import express from 'express';
+import apiRouter from './routes';
+
 const server = express();
 const serverPort = process.env.SERVER_PORT;
 
 server.use('/api', apiRouter);
-server.listen(serverPort, onServerStart);
+server.listen(3100, onServerStart);
 
 function onServerStart() {
-  console.log('server listening on port: ', serverPort);
+  console.log('server listening on port: ', 3100);
 }
 
-module.exports = server;
+export default server;
