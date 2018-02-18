@@ -1,0 +1,25 @@
+{
+  "name": "wedding-backend",
+  "version": "0.0.1",
+  "description": "simple backend for storing wedding guests and rsvp statuses",
+  "main": "index.js",
+  "repository": "git@github.com:duncan-iaria/wedding-backend.git",
+  "author": "Duncan Iaria <duncaniaria@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^3.11.0"
+  },
+  "scripts": {
+    "start": "nodejs src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "global": "^4.3.2"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "printWidth": 120
+  }
+}
