@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
 router.get('/', guestsResponse);
@@ -8,4 +8,4 @@ function guestsResponse(request, response) {
   response.json({ guests: true });
 }
 
-module.exports = router;
+export default router;

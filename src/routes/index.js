@@ -1,9 +1,10 @@
-const express = require('express');
+import express from 'express';
+import guestRouter from './guests';
+import userRouter from './users';
+
 const apiRouter = express.Router();
-const guestRouter = require('./guests');
-const userRouter = require('./users');
 
 apiRouter.use('/guests', guestRouter);
 apiRouter.use('/users', userRouter);
 
-module.exports = apiRouter;
+export default apiRouter;
