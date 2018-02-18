@@ -1,8 +1,14 @@
 import mongoose from 'mongoose';
 
 const guestSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
+  firstName: {
+    type: String,
+    required: [true, 'A first name is required for all guests'],
+  },
+  lastName: {
+    type: String,
+    required: [true, 'A last name is required for all guests'],
+  },
   isComing: Boolean,
 });
 

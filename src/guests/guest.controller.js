@@ -8,13 +8,18 @@ export function getAllGuests(request, response, next) {
   response.json({ getAllGuests: true });
 }
 
-export function createGuest(request, response, next) {
-  const tempGuest = {
-    firstName: 'Duncan',
-    lastName: 'Iaria',
-    isComing: true,
-  };
+export async function createGuest(request, response, next) {
+  console.log(request.body);
+  let newGuest;
+  if (request.body != null) {
+    newGuest = await Guest.create(request.body);
+  }
+  // const tempGuest = {
+  //   firstName: 'Duncan',
+  //   lastName: 'Iaria',
+  //   isComing: true,
+  // };
 
-  Guest.create(tempGuest);
-  response.json({ createdGuest: true });
+  // Guest.create(tempGuest);
+  response.status(201).json({ newGuest });
 }
