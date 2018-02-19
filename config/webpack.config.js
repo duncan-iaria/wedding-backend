@@ -16,7 +16,7 @@ module.exports = {
   entry: './src/entry.js',
   target: 'node',
   output: {
-    path: path.join(__dirname, 'build'),
+    path: path.join(__dirname, '../build'),
     filename: 'server.js',
   },
   externals: nodeModules,
