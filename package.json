@@ -10,9 +10,9 @@
     "webpack": "^3.11.0"
   },
   "scripts": {
-    "run-server": "node --require dotenv/config build/server.js && build/server",
+    "run-server": "node --require dotenv/config build/server.js dotenv_config_path=config/.env && build/server",
     "start": "nodejs src/entry.js",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --config ./config/webpack.config.js",
     "build-run": "yarn build && yarn run-server"
   },
   "dependencies": {
