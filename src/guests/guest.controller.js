@@ -1,15 +1,17 @@
 import { Guest } from './guest.model';
 
 export const findById = (request, response, next, id) => {
-  Guest.findById(id).then(tGuest => {
-    if (!tGuest) {
-      next(new Error('Guest with that ID not found'));
-    } else {
-      // attach the found guest to the request
-      request.guest = tGuest;
-      next();
-    }
-  });
+  Guest.findById(id)
+    .then(tGuest => {
+      if (!tGuest) {
+        next(new Error('Guest with that ID not found'));
+      } else {
+        // attach the found guest to the request
+        request.guest = tGuest;
+        next();
+      }
+    })
+    .catch(tError => next(tError));
 };
 
 export const getGuestById = (request, response, next) => {
