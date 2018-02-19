@@ -5,7 +5,7 @@ import {
   findById,
   getGuestById,
   // updateGuestById,
-  // deleteGuestById,
+  deleteGuestById,
 } from './guest.controller';
 
 export const guestRouter = express.Router();
@@ -17,9 +17,11 @@ guestRouter
   .get(getAllGuests)
   .post(createGuest);
 
-guestRouter.route('/:id').get(getGuestById);
+guestRouter
+  .route('/:id')
+  .get(getGuestById)
+  .delete(deleteGuestById);
 // .put(updateGuestById)
-// .delete(deleteGuestById);
 
 function guestsResponse(request, response) {
   console.log('guests api hit');

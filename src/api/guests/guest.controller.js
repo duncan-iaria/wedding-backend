@@ -35,6 +35,20 @@ export function createGuest(request, response, next) {
     .catch(tError => next(tError));
 }
 
+export const deleteGuestById = (request, response, next) => {
+  if (!request.guest) {
+    next(new Error('no guest selected for deletion'));
+  } else {
+    Guest.deleteOne({ id: request.guest.id })
+      .then(tSuccess => {
+        console.log('deleting guest with id of:', request.guest.id);
+        response.status(200).json({ message: 'guest successfully deleted' });
+      })
+      .catch(tError => {
+        next(tError);
+      });
+  }
+};
 // findByParam,
 // getGuestById,
 // updateGuestById,
