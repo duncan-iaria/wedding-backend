@@ -6,17 +6,18 @@ import {
   getGuestById,
   // updateGuestById,
   // deleteGuestById,
-} from '../guests/guest.controller';
-const router = express.Router();
+} from './guest.controller';
 
-router.param('id', findById);
+export const guestRouter = express.Router();
 
-router
+guestRouter.param('id', findById);
+
+guestRouter
   .route('/')
   .get(getAllGuests)
   .post(createGuest);
 
-router.route('/:id').get(getGuestById);
+guestRouter.route('/:id').get(getGuestById);
 // .put(updateGuestById)
 // .delete(deleteGuestById);
 
@@ -24,5 +25,3 @@ function guestsResponse(request, response) {
   console.log('guests api hit');
   response.json({ guests: true });
 }
-
-export default router;

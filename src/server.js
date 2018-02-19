@@ -1,5 +1,5 @@
 import express from 'express';
-import apiRouter from './routes';
+import apiRouter from './api/router';
 import setupMiddleware from './middleware';
 import mongoose from 'mongoose';
 

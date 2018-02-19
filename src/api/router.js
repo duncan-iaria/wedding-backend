@@ -1,6 +1,6 @@
 import express from 'express';
-import guestRouter from './guests';
-import userRouter from './users';
+import { guestRouter } from './guests';
+import { userRouter } from './users';
 import { errorHandler } from './errorHandler';
 
 const apiRouter = express.Router();

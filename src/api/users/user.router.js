@@ -1,11 +1,10 @@
 import express from 'express';
-const router = express.Router();
 
-router.get('/', userResponse);
+export const userRouter = express.Router();
+
+userRouter.get('/', userResponse);
 
 function userResponse(request, response) {
   console.log('users route hit');
   response.json({ users: true });
 }
-
-export default router;
