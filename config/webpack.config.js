@@ -20,4 +20,30 @@ module.exports = {
     filename: 'server.js',
   },
   externals: nodeModules,
+  // for spread operator and other stuff
+  module: {
+    rules: [
+      {
+        test: /\.js?$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: [['env', { modules: false }], 'stage-0'],
+              plugins: ['transform-regenerator', 'transform-runtime'],
+            },
+          },
+        ],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'raw-loader',
+        },
+      },
+    ],
+  },
 };

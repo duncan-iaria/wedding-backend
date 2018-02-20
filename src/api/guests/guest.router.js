@@ -4,7 +4,7 @@ import {
   getAllGuests,
   findById,
   getGuestById,
-  // updateGuestById,
+  updateGuestById,
   deleteGuestById,
 } from './guest.controller';
 
@@ -20,8 +20,8 @@ guestRouter
 guestRouter
   .route('/:id')
   .get(getGuestById)
+  .put(updateGuestById)
   .delete(deleteGuestById);
-// .put(updateGuestById)
 
 function guestsResponse(request, response) {
   console.log('guests api hit');
